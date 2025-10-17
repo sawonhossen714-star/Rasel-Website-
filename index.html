@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MYR থেকে BDT কনভার্টার</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #00b4db, #0083b0);
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+    .container {
+      background: rgba(255,255,255,0.15);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      display: inline-block;
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      text-align: center;
+      margin-top: 10px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background: #ffcc00;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #ffe066;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🇲🇾 MYR ➜ 🇧🇩 BDT কনভার্টার</h2>
+    <p>মালয়েশিয়ার টাকা লিখে দেখুন বাংলাদেশি টাকায় কত হবে</p>
+    <input type="number" id="myr" placeholder="যেমন: 1" />
+    <br>
+    <button onclick="convert()">হিসাব দেখুন</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function convert() {
+      const myr = document.getElementById('myr').value;
+      const rate = 26.00; // 🔹 এখানেই তুমি রেট ঠিক করবে (১ MYR = 26 BDT)
+
+      if (!myr || myr <= 0) {
+        document.getElementById('result').innerText = "অনুগ্রহ করে একটি সঠিক পরিমাণ লিখুন";
+        return;
+      }
+
+      const bdt = (myr * rate).toFixed(2);
+      document.getElementById('result').innerHTML = 
+        `${myr} মালয়েশিয়ান রিংগিত = <br> 💰 ${bdt} বাংলাদেশি টাকা<br><br><small>রেট: 1 MYR = ${rate} BDT</small>`;
+    }
+  </script>
+</body>
+</html>
